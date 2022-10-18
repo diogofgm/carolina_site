@@ -1,47 +1,23 @@
-<footer class="site-footer">
+<!-- begin footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
 
-  <div class="wrapper">
-</br>
-    <h2 class="footer-heading">Contact</h2>
+        <!-- {% bookshop_include social-link %} -->
 
-    <div class="footer">
-
-        <h3 class="contact-list">
-<li>
-            {% if site.author %}
-              {{ site.author | escape }}
-            {% endif %}
-
-</li>
-<li>
-            {% if site.phone %}
-            Call {{ site.phone | escape }}
-            {% endif %}
-            </li>
-<li>
-            {% if site.email %}
-            email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {% endif %}
-
-          </h3>
-</br>
-        <div class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
+        <ul class="footer_nav list-reset">
+          {% for item in site.data.footer.footer_menu__settings.menu__items %}
+          <li class="footer_nav__item">
+            <a href="{{ item.url | relative_url }}" class="footer_nav__link">{{ item.title }}</a>
           </li>
-          {% endif %}
+          {% endfor %}
+        </ul>
 
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
-        </div>
+        <div class="copyright">{{ site.data.footer.copyright_text_html }}</div>
 
-
+      </div>
     </div>
-
   </div>
-
 </footer>
+<!-- end footer -->
